@@ -21,4 +21,33 @@
 // Print all the seasonal drinks with the words "with imported beans" after the item name.
 // For example: "affogato with imported beans"
 const coffeeMenu = require("./coffee_data_starter.js");
-console.log(coffeeMenu)
+
+const printName = (item) => {
+    return item.name;
+}
+console.log(coffeeMenu.map(printName));
+
+
+const underFive = (item) => {
+    return item.price <= 5;
+}
+const itemsUnderFive = coffeeMenu.filter(underFive);
+(itemsUnderFive);
+console.log(itemsUnderFive)
+
+
+function isEven(value) {
+    return value.price % 2 === 0;
+}
+ 
+let filtered = coffeeMenu.filter(isEven);
+console.log(filtered);
+
+
+const total =(acc, curr) => {
+    return acc + curr.price 
+}
+let isFiltered = coffeeMenu.reduce(total, 0) 
+
+console.log(isFiltered)
+
